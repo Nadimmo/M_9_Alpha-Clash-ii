@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body{
+      background-image: url(layered-peaks-haikei.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 883px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="firstsection">
+      <div class="first text-center pt-[300px] " id="play">
+        <p class="text-8xl text-white">ALPHABET CLASH</p> <br>
+        <p class="text-xl text-white">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p> <br>
+        <button onclick="jumpTheNextpage()" class="btn">click me</button>
+      </div>
+    </section>
+    <br>
+    <section class="second hidden items-center justify-center pl-[50px] mt-[200px]" id="playGround">
+      <div >
+        <p class="text-8xl text-center" id="current-alphabet";>Y</p>
+        <br><br>
+       
+        <div>
+          <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="q" class="kbd">q</kbd>
+              <kbd id="w" class="kbd">w</kbd>
+              <kbd id="e" class="kbd">e</kbd>
+              <kbd id="r" class="kbd">r</kbd>
+              <kbd id="t" class="kbd">t</kbd>
+              <kbd id="y" class="kbd">y</kbd>
+              <kbd id="u" class="kbd">u</kbd>
+              <kbd id="i" class="kbd">i</kbd>
+              <kbd id="o" class="kbd">o</kbd>
+              <kbd id="p" class="kbd">p</kbd>
+          </div> 
+          <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="a" class="kbd">a</kbd>
+              <kbd id="s" class="kbd">s</kbd>
+              <kbd id="d" class="kbd">d</kbd>
+              <kbd id="f" class="kbd">f</kbd>
+              <kbd id="g" class="kbd">g</kbd>
+              <kbd id="h" class="kbd">h</kbd>
+              <kbd id="j" class="kbd">j</kbd>
+              <kbd id="k" class="kbd">k</kbd>
+              <kbd id="l" class="kbd">l</kbd>
+          </div> 
+          <div class="flex justify-center gap-1 my-1 w-full">
+              <kbd id="z" class="kbd">z</kbd>
+              <kbd id="x" class="kbd">x</kbd>
+              <kbd id="c" class="kbd">c</kbd>
+              <kbd id="v" class="kbd">v</kbd>
+              <kbd id="b" class="kbd">b</kbd>
+              <kbd id="n" class="kbd">n</kbd>
+              <kbd id="m" class="kbd">m</kbd>
+              <kbd id="/" class="kbd">/</kbd>
+          </div>
+      </div>
+      <div class="flex justify-around">
+        <button class="btn btn-defualt">Life <span id="current-life">5</span></button>
+        <button class="btn btn-defualt">Score <span id="current-score">0</span></button>
+      </div>
+    </section>
+    <br>
+    <section class="w-full text-center hidden" id="ShowScore">
+      <div class="third pt-10 ">
+        <h2 class="text-2xl font-bold pt-[200px]">Game Over !</h2>
+        <h1 class="text-8xl font-bold">Score: 
+          <span id="finalScore">10</span>
+        </h1>
+        <br>
+        <button class="btn btn-defualt" onclick="jumpTheNextpage()">Play Again</button>
+      </div>
+    </section>
+  </main>
+    
+
+  
+  <script src="script.js"></script>
+  <script src="utiliti.js"></script>
+
+</body>
+</html>
