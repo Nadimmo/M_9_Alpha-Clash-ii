@@ -1,80 +1,78 @@
-// function keyHabalar(e){
-//     const playerPressValue = e.key;
-//     // Game to outside
-//     if(playerPressValue === "Escape"){
-//       GameOver()
-//     }
-  
-//     const currentAlphabet = document.getElementById('current-alphabet');
-//     const expectAlphabet = currentAlphabet.innerText.toLowerCase();
-//     // console.log(alphabets, expectAlphabet)
-//     if(playerPressValue === expectAlphabet){
-//       console.log('you are get point');
-//       // update score
-//       const currentScoreElement = document.getElementById('current-score');
-//       const currentScore = parseInt(currentScoreElement.innerText);
-  
-//       let newScore = currentScore + 1;
-//       currentScoreElement.innerText = newScore;
-//       // start new round
-//       removeTextColor(expectAlphabet)
-//       GameContinue()
-//     }
-//     else{
-//       console.log('you are lost your life');
-//       const currentLifeElement = document.getElementById('current-life');
-//       const currentLife = parseInt(currentLifeElement.innerText);
-  
-//       let newLife = currentLife - 1;
-//       currentLifeElement.innerText = newLife;
-  
-//       // game over
-//       if(currentLife === 0){
-//         GameOver();
-    
-//       }
-//     }
-//   }
-  
-//   document.addEventListener('keyup', keyHabalar)
-//   // show array function
-//   function GameContinue(){
-//     let letters = alphabetString()
-//     // console.log('your random letter', letters)
-//     let current = document.getElementById('current-alphabet');
-//     current.innerText = letters.toUpperCase();
-  
-//     // set background function
-//     setBackgroundColor(letters)
-//   }
-  
-//   // main function
-//   function jumpTheNextpage(){
-//     hiddenElementId('play');
-//     showElementId('playGround');
-//     GameContinue()
-//     hiddenElementId('ShowScore');
-//     showElementId('playGround');
-//     // reset all
-//     setElementByID('current-life',5);
-//     setElementByID('current-score',0);
-//   }
-  
-//   function GameOver(){
-//     hiddenElementId('playGround');
-//     showElementId('ShowScore')
-//     // show current score in final score page
-//     let Score = getTextElementValueById('current-score');
-//     setElementByID('finalScore', Score);
-  
-//     // remove the current text background color;
-//     const letter = getElementTextById("current-alphabet");
-//     console.log(letter);
-//     removeTextColor(letter);
-  
-    
-//   }
-  
+function keyboardEventHandler(event){
+  const playerPressValue = event.key;
+  // console.log(playerPressValue);
+  // close the game
+  if(playerPressValue === 'Escape'){
+    GameOver();
+  }
+  // current alphabet;
+  const currentAlphabet = document.getElementById('current-alphabet');
+  const letter = currentAlphabet.innerText.toLowerCase();
+  // condition
+  if(playerPressValue === letter){
+    console.log('you are get point');
+    // current score
+    const currentScore  = document.getElementById('current-score');
+    const Score = parseInt(currentScore.innerText);
+    // new score;
+    const NewScore = Score + 1;
+    currentScore.innerText = NewScore;
+    // remove text color
+    removeBackgroundColor(letter);
+    // continue game
+    randomAlphabet();
+  }
+  else{
+    console.log('you are lost your life');
+    const currentLife = document.getElementById("current-life");
+    const life = parseInt(currentLife.innerText);
+    // new life
+    const Newlife = life - 1;
+    currentLife.innerText = Newlife;
+    if(life === 0){
+      GameOver();
+    }
+  }
+}
 
 
+// key board Handler
+document.addEventListener('keyup', keyboardEventHandler);
 
+// main function
+function jumpTheNextpage(){
+  hiddenElementId('hom-screen');
+  showElementId('playGround')
+  randomAlphabet()
+  hiddenElementId('ShowScore');
+}
+
+// random alphabet show in current letter
+function randomAlphabet(){
+  const alphabet = alphabetString();
+
+  const currentAlphabet = document.getElementById('current-alphabet');
+  currentAlphabet.innerText = alphabet.toUpperCase();
+  // set background color in keyboard;
+  setBackgroundColor(alphabet);
+
+}
+
+// game over function
+function GameOver(){
+  hiddenElementId('playGround');
+  showElementId('ShowScore');
+
+  // current score
+  const currentScore = document.getElementById('current-score');
+  const score = currentScore.innerText;
+  setElementTextById('finalScore', score);
+  // reset all
+  setElementTextById('current-life', 5);
+  setElementTextById('current-score', 0);
+
+  const currentAlphabet = getElementTextById('current-alphabet');
+  // console.log(currentAlphabet);
+  // remove background color in keyboard;
+  removeBackgroundColor(currentAlphabet);
+}
